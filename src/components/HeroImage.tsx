@@ -1,24 +1,23 @@
-import Image from "next/image";
+import SimpleButton from "./button/simpleButton";
 
 export default function HeroImage() {
   return (
-    <div className="relative">
-      <Image
-        src="https://kkoouuyanextbucket.s3.us-west-2.amazonaws.com/hero.jpg"
-        width={3000}
-        height={5000}
-        alt="test"
-        className="rounded-lg absolute"
-      />
+    <div
+      className="
+      h-96
+      rounded-xl
+      bg-hero-img"
+    >
       <div
         className="
-          absolute
-          top-20
+          h-full
+          flex
           flex-col
           justify-center
           items-center
           space-y-5
           text-white
+          select-none
           "
       >
         <h1 className="font-black text-5xl text-center">
@@ -30,6 +29,15 @@ export default function HeroImage() {
           is designed to be a place of comfort, creativity,
           and connection.
         </p>
+        <div className="text-black">
+          <SimpleButton
+            color="primary"
+            label="View all locations"
+            onClick={() =>
+              console.log("View all locations click")
+            }
+          />
+        </div>
       </div>
     </div>
   );
