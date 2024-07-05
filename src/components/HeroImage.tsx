@@ -4,7 +4,7 @@ export default function HeroImage() {
   return (
     <div className="relative">
       <Image
-        src="/hero.jpg"
+        src="https://kkoouuyanextbucket.s3.us-west-2.amazonaws.com/hero.jpg"
         width={3000}
         height={5000}
         alt="test"
