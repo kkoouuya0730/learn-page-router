@@ -1,6 +1,4 @@
-import Link from "next/link";
 import Image from "next/image";
-
 import SimpleButton from "./button/simpleButton";
 
 export default function Header() {
@@ -22,9 +20,7 @@ export default function Header() {
             alt="test"
             className="rounded-lg"
           />
-          <h1 className="font-black text-2xl">
-            Vesuvio Cafe
-          </h1>
+          <h1 className="font-black text-2xl">Cafe 7am</h1>
           <div>
             <input placeholder="Search" />
           </div>
@@ -40,13 +36,7 @@ export default function Header() {
             label="Cart"
             onClick={() => console.log("cart click!")}
           />
-          <Image
-            src="/favicon.ico"
-            width={30}
-            height={30}
-            alt="test"
-            className="rounded-lg"
-          />
+          <span className="i-mdi-light-account w-7 h-7"></span>
         </div>
       </div>
     </header>

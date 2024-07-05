@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { useBearStore } from "@/pages/store";
+import { useBearStore } from "@/store/store";
 
 export default function About() {
   const bears = useBearStore((state) => state.bears);
