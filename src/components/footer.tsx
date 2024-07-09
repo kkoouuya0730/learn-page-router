@@ -1,6 +1,8 @@
-export default function Footer() {
+import React from "react";
+
+const Footer: React.FC = () => {
   return (
-    <footer>
+    <footer className="border-t-2 border-gray-200">
       <div className="container mx-auto flex flex-col gap-4 p-4">
         <p>
           © 2024 - Copyright kkoouuya, All Rights Reserved.
@@ -21,4 +23,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

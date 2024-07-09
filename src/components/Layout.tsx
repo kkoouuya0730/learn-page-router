@@ -1,7 +1,12 @@
 import Header from "./header";
 import Footer from "./footer";
+import React from "react";
 
-export default function Layout({ children }: any) {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Header />
@@ -9,4 +14,6 @@ export default function Layout({ children }: any) {
       <Footer />
     </>
   );
-}
+};
+
+export default Layout;
