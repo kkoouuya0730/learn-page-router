@@ -1,0 +1,26 @@
+[
+  {
+    "id": "qR7b2tFz9aK5eN1u",
+    "name": "Espresso",
+    "description": "A concentrated coffee brewed by forcing hot water through finely-ground coffee beans.",
+    "imgSrc": "/hero.jpg"
+  },
+  {
+    "id": "yP9kX6sW3mJ3gV8",
+    "name": "Cappuccino",
+    "description": "A coffee drink that consists of a shot of espresso, steamed milk, and a layer of frothy milk foam.",
+    "imgSrc": "/hero.jpg"
+  },
+  {
+    "id": "mJ3gV8dHqR7b2tFz",
+    "name": "Cold Brew",
+    "description": "A refreshing coffee made by steeping coarsely ground coffee beans in cold water for an extended period.",
+    "imgSrc": "/hero.jpg"
+  },
+  {
+    "id": "aK5eN1uRyP9kX6sW",
+    "name": "Latte",
+    "description": "A creamy coffee made with a shot of espresso and steamed milk, often topped with a small amount of foam.",
+    "imgSrc": "/hero.jpg"
+  }
+]

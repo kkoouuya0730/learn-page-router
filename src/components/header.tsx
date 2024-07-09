@@ -1,7 +1,8 @@
+import React from "react";
 import Image from "next/image";
 import SimpleButton from "./button/simpleButton";
 
-export default function Header() {
+const Header: React.FC = () => {
   return (
     <header className="border-b-2 border-gray-200">
       <div
@@ -41,4 +42,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;
