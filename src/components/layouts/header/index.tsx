@@ -1,4 +1,4 @@
-import SimpleButton from "@/components/elements/button/SimpleButton";
+import Button from "@/components/elements/button/Button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,21 +27,23 @@ export default function Header() {
               src="/images/header-logo.png"
               width={140}
               height={20}
-              alt="cafe 7pm"
+              alt="cafe 7pm - Home"
             />
           </Link>
         </div>
         <div className="flex items-center space-x-1">
-          <SimpleButton
+          <Button
             color="primary"
-            label="Sign up"
             onClick={() => console.log("click!")}
-          />
-          <SimpleButton
-            color="secondary"
-            label="Login"
+          >
+            Sign Up
+          </Button>
+          <Button
+            color="tertiary"
             onClick={() => console.log("cart click!")}
-          />
+          >
+            Login
+          </Button>
         </div>
       </div>
     </header>
