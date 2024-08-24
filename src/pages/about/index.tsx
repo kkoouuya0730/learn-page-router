@@ -1,15 +1,8 @@
-import Layout from "@/components/Layout";
-import { forwardRef, useRef } from "react";
+import Layout from "@/components/layouts/Layout";
+import { MyInput } from "@/features/about/MyInput";
+import { useRef } from "react";
 
-type MyInputProps = {
-  className: string;
-};
 
-const MyInput = forwardRef<HTMLInputElement, MyInputProps>(
-  function MyInput(props, ref) {
-    return <input {...props} ref={ref} />;
-  }
-);
 export default function About() {
   const inputRef = useRef<HTMLInputElement>(null);
   function handleClick() {

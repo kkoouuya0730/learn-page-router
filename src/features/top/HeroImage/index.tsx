@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import SimpleButton from "./button/simpleButton";
-
 // 画面の大きさをいじると画像が小さくなってから大きくなるのはなぜ
 export default function HeroImage() {
   return (

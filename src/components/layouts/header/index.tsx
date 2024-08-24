@@ -1,5 +1,5 @@
+import SimpleButton from "@/components/elements/button/SimpleButton";
 import Image from "next/image";
-import SimpleButton from "./button/simpleButton";
 import Link from "next/link";
 
 export default function Header() {
