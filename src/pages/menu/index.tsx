@@ -1,9 +1,8 @@
 import Layout from "@/components/layouts/Layout";
-import { MyInput } from "@/features/about/MyInput";
+import { MyInput } from "@/features/menu/MyInput";
 import { useRef } from "react";
 
-
-export default function About() {
+export default function Menu() {
   const inputRef = useRef<HTMLInputElement>(null);
   function handleClick() {
     inputRef.current?.focus();
@@ -30,6 +29,6 @@ export default function About() {
   );
 }
 
-About.getLayout = function getLayout(page: any) {
+Menu.getLayout = function getLayout(page: any) {
   return <Layout>{page}</Layout>;
 };

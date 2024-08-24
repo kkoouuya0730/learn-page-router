@@ -1,6 +1,8 @@
 import Button from "@/components/elements/button/Button";
 import Image from "next/image";
 import Link from "next/link";
+import NavigationParts from "./parts/Navigation";
+import Hamburger from "./parts/Hamburger";
 
 export default function Header() {
   return (
@@ -12,16 +14,11 @@ export default function Header() {
         px-4
         space-x-5
         justify-between
+        items-center
         "
       >
         <div className="flex items-center space-x-1">
-          <Image
-            src="/images/menu.png"
-            width={25}
-            height={25}
-            alt="menu"
-            className="sm:hidden"
-          />
+          <Hamburger />
           <Link href="/">
             <Image
               src="/images/header-logo.png"
@@ -31,12 +28,15 @@ export default function Header() {
             />
           </Link>
         </div>
+        <div className="hidden sm:block">
+          <NavigationParts />
+        </div>
         <div className="flex items-center space-x-1">
           <Button
             color="primary"
             onClick={() => console.log("click!")}
           >
-            Sign Up
+            <p className="whitespace-nowrap">Sign Up</p>
           </Button>
           <Button
             color="tertiary"
