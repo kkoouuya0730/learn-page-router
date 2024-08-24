@@ -17,8 +17,6 @@ const config: Config = {
           "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-img":
-          "url(https://kkoouuyanextbucket.s3.us-west-2.amazonaws.com/hero.jpg)",
       },
     },
   },
