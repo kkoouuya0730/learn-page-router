@@ -1,32 +1,37 @@
-import React from "react";
 import Image from "next/image";
 import SimpleButton from "./button/simpleButton";
+import Link from "next/link";
 
-const Header: React.FC = () => {
+export default function Header() {
   return (
     <header className="border-b-2 border-gray-200">
       <div
         className="
         flex
-        p-4
+        py-2
+        px-4
         space-x-5
         justify-between
         "
       >
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-1">
           <Image
-            src="/favicon.ico"
-            width={30}
-            height={30}
-            alt="test"
-            className="rounded-lg"
+            src="/images/menu.png"
+            width={25}
+            height={25}
+            alt="menu"
+            className="sm:hidden"
           />
-          <h1 className="font-black text-2xl">Cafe 7am</h1>
-          <div>
-            <input placeholder="Search" />
-          </div>
+          <Link href="/">
+            <Image
+              src="/images/header-logo.png"
+              width={140}
+              height={20}
+              alt="cafe 7pm"
+            />
+          </Link>
         </div>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-1">
           <SimpleButton
             color="primary"
             label="Sign up"
@@ -34,14 +39,11 @@ const Header: React.FC = () => {
           />
           <SimpleButton
             color="secondary"
-            label="Cart"
+            label="Login"
             onClick={() => console.log("cart click!")}
           />
-          <span className="i-mdi-light-account w-7 h-7"></span>
         </div>
       </div>
     </header>
   );
-};
-
-export default Header;
+}

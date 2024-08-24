@@ -1,19 +1,18 @@
 import Header from "./header";
 import Footer from "./footer";
-import React from "react";
 
 type Props = {
   children: React.ReactNode;
 };
 
-const Layout: React.FC<Props> = ({ children }) => {
+export default function Layout({ children }: Props) {
   return (
     <>
       <Header />
-      <main className="m-10">{children}</main>
+      <main className="mx-10 my-5 sm:mx-60 sm:my-10">
+        {children}
+      </main>
       <Footer />
     </>
   );
-};
-
-export default Layout;
+}
