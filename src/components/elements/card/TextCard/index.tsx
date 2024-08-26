@@ -6,7 +6,7 @@ type Props = {
 export default function TextCard({ children }: Props) {
   return (
     <>
-      <div className="border rounded-lg border-gray-700 p-3">
+      <div className="border rounded-lg border-gray-300 p-3">
         {children}
       </div>
     </>

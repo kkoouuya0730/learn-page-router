@@ -60,7 +60,7 @@ export default function Top() {
             >
               Order now
             </Button>
-            <TextCardList></TextCardList>
+            <TextCardList />
           </div>
         </section>
       </div>
