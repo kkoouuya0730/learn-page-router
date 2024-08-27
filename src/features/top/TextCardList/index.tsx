@@ -2,30 +2,29 @@ import TextCard from "@/components/elements/card/TextCard";
 import React, { useEffect, useState } from "react";
 import {
   getCardListItems,
-  MenuItems,
+  MenuItem,
 } from "./text-card-utils";
+import { ImgItem } from "../ImgCardList/img-card-utils";
+import { ClockIcon } from "@/ui/icon/ClockIcon";
 
-export default function TextCardList() {
-  const [menus, setMenus] = useState<MenuItems[] | null>(
-    null
-  );
+type Props = {
+  items: MenuItem[]
+}
 
-  useEffect(() => {
-    getCardListItems().then((res) => setMenus(res));
-  }, []);
-
+export default function TextCardList({items}: Props) {
   return (
     <>
-      {menus && (
+      {items && (
         <ul className="flex space-x-1">
-          {menus.map((menu) => (
-            <li key={menu.head}>
+          {items.map((item) => (
+            <li key={item.head}>
               <TextCard>
+                {item.icon && <ClockIcon />}
                 <h3 className="text-2xl font-semibold">
-                  {menu.head}
+                  {item.head}
                 </h3>
                 <p className="leading-snug text-yellow-800">
-                  {menu.description}
+                  {item.description}
                 </p>
               </TextCard>
             </li>

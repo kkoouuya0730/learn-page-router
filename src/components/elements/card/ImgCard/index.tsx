@@ -2,46 +2,32 @@ import React from "react";
 import Image from "next/image";
 
 type Props = {
+  src: string;
   width?: number;
   height?: number;
   alt?: string;
-  item: {
-    id: string;
-    name: string;
-    imgSrc: string;
-    description?: string;
-  };
+  className?: string;
+  children?: React.ReactNode;
 };
 
-const ImgCard: React.FC<Props> = ({
+export function ImgCard({
+  src,
   width = 300,
   height = 300,
   alt = "",
-  item,
-}) => {
+  className,
+  children,
+}: Props) {
   return (
     <>
       <Image
-        src={item.imgSrc}
+        src={src}
         width={width}
         height={height}
         alt={alt}
-        className="rounded-lg"
+        className={className}
       />
-      <div>
-        <h2 className="font-black text-lg hover:underline">
-          {item.name}
-        </h2>
-        {item.description ? (
-          <p className="font-thin text-wrap">
-            {item.description.slice(0, 50)}
-          </p>
-        ) : (
-          <p></p>
-        )}
-      </div>
+      {children}
     </>
   );
-};
-
-export default ImgCard;
+}

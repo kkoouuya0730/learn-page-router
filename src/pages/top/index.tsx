@@ -1,11 +1,39 @@
 import Button from "@/components/elements/button/Button";
 import Layout from "@/components/layouts/Layout";
+import ImgCardList from "@/features/top/ImgCardList";
+import {
+  getImgCardListItems,
+  ImgItem,
+} from "@/features/top/ImgCardList/img-card-utils";
 import TextCardList from "@/features/top/TextCardList";
+import {
+  getCardListItems,
+  getCoffeeItems,
+  MenuItem,
+} from "@/features/top/TextCardList/text-card-utils";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Top() {
   const router = useRouter();
+  const [menus, setMenus] = useState<MenuItem[] | null>(
+    null
+  );
+  const [coffeeMenus, setCoffeeMenus] = useState<
+    MenuItem[] | null
+  >(null);
+
+  useEffect(() => {
+    // TODO どの画面、コンポーネントでデータ取得するのがいいか一般論を調査
+    getCardListItems().then((res) => setMenus(res));
+  }, []);
+
+  useEffect(() => {
+    // TODO どの画面、コンポーネントでデータ取得するのがいいか一般論を調査
+    getCoffeeItems().then((res) => setCoffeeMenus(res));
+  }, []);
+
   return (
     <>
       <div className="flex-col space-y-5 sm:space-y-10">
@@ -33,15 +61,15 @@ export default function Top() {
                     Our space is designed to be place of
                     comfort, creativity, and connection.
                   </p>
-                    </div>
-                  <p>
-                    <Button
-                      color="primary"
-                      onClick={() => router.push("/menu")}
-                    >
-                      View our menus
-                    </Button>
-                  </p>
+                </div>
+                <p>
+                  <Button
+                    color="primary"
+                    onClick={() => router.push("/menu")}
+                  >
+                    View our menus
+                  </Button>
+                </p>
               </div>
             </div>
           </div>
@@ -62,7 +90,17 @@ export default function Top() {
             >
               Order now
             </Button>
-            <TextCardList />
+            {menus && <TextCardList items={menus} />}
+            <ImgCardList />
+          </div>
+        </section>
+        <section>
+          <div className="flex-col space-y-3">
+            <h2 className="font-bold text-3xl">
+              Featured menu items
+            </h2>
+            <p>Our top picks for you</p>
+            {coffeeMenus && <TextCardList items={coffeeMenus} />}
           </div>
         </section>
       </div>
