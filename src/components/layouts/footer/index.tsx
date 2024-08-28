@@ -1,24 +1,45 @@
+import { FacebookIcon } from "@/ui/icon/FacebookIcon";
+import { InstagramIcon } from "@/ui/icon/InstagramIcon";
+import { TwitterIcon } from "@/ui/icon/TwitterIcon";
+import { YoutubeIcon } from "@/ui/icon/YoutubeIcon";
 import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-gray-200">
-      <div className="container mx-auto flex flex-col gap-4 p-4">
-        <p>
-          © 2024 - Copyright kkoouuya, All Rights Reserved.
+    <footer className="pb-2">
+      <div className="container mx-auto text-center text-yellow-800">
+        <p className="flex mb-2">
+          <p className="flex-1">Privacy Policy</p>
+          <p className="flex-1">Terms of Service</p>
+          <p className="flex-1">
+            Do Not Sell My Personal Information
+          </p>
+        </p>
+        <p className="flex justify-center space-x-5 mb-2">
+          <p>
+            <a target="_blank" href="https://google.com">
+              <FacebookIcon />
+            </a>
+          </p>
+          <p>
+            <a target="_blank" href="https://google.com">
+              <TwitterIcon />
+            </a>
+          </p>
+          <p>
+            <a target="_blank" href="https://google.com">
+              <InstagramIcon />
+            </a>
+          </p>
+          <p>
+            <a target="_blank" href="https://google.com">
+              <YoutubeIcon />
+            </a>
+          </p>
         </p>
         <p>
-          このサイトは Google Analytics
-          を使用しています。詳しくは
-          <a
-            href="https://policies.google.com/technologies/partner-sites?hl=ja"
-            className="hover:opacity-75 underline"
-          >
-            Google
-            のサービスを使用するサイトやアプリから収集した情報の
-            Google による使用 – ポリシーと規約
-          </a>
-          をご覧ください。
+          @ 2024 Brew & Brew Coffee Company. All rights
+          reserved
         </p>
       </div>
     </footer>

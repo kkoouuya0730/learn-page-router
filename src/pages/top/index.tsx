@@ -1,10 +1,6 @@
 import Button from "@/components/elements/button/Button";
 import Layout from "@/components/layouts/Layout";
 import ImgCardList from "@/features/top/ImgCardList";
-import {
-  getImgCardListItems,
-  ImgItem,
-} from "@/features/top/ImgCardList/img-card-utils";
 import TextCardList from "@/features/top/TextCardList";
 import {
   getCardListItems,
@@ -100,7 +96,9 @@ export default function Top() {
               Featured menu items
             </h2>
             <p>Our top picks for you</p>
-            {coffeeMenus && <TextCardList items={coffeeMenus} />}
+            {coffeeMenus && (
+              <TextCardList items={coffeeMenus} />
+            )}
           </div>
         </section>
       </div>
