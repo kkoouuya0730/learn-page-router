@@ -8,14 +8,14 @@ export default function Footer() {
   return (
     <footer className="pb-2">
       <div className="container mx-auto text-center text-yellow-800">
-        <p className="flex mb-2">
+        <div className="flex mb-2">
           <p className="flex-1">Privacy Policy</p>
           <p className="flex-1">Terms of Service</p>
           <p className="flex-1">
             Do Not Sell My Personal Information
           </p>
-        </p>
-        <p className="flex justify-center space-x-5 mb-2">
+        </div>
+        <div className="flex justify-center space-x-5 mb-2">
           <p>
             <a target="_blank" href="https://google.com">
               <FacebookIcon />
@@ -36,7 +36,7 @@ export default function Footer() {
               <YoutubeIcon />
             </a>
           </p>
-        </p>
+        </div>
         <p>
           @ 2024 Brew & Brew Coffee Company. All rights
           reserved

@@ -1,6 +1,7 @@
 import Button from "@/components/elements/button/Button";
 import Layout from "@/components/layouts/Layout";
 import ImgCardList from "@/features/top/ImgCardList";
+import { ImgItem } from "@/features/top/ImgCardList/img-card-utils";
 import TextCardList from "@/features/top/TextCardList";
 import {
   getCardListItems,
@@ -9,26 +10,28 @@ import {
 } from "@/features/top/TextCardList/text-card-utils";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
-export default function Top() {
+const imgItems: ImgItem[] = [
+  {
+    src: "/images/coffee/coffee-2608864_1280.jpg",
+  },
+  {
+    src: "/images/coffee/coffee-7121939_1280.jpg",
+  },
+  {
+    src: "/images/coffee/table-4566563_1280.jpg",
+  },
+  {
+    src: "/images/coffee/demi-deherrera-L-sm1B4L1Ns-unsplash.jpg",
+  },
+];
+
+type Props = {
+  menus: MenuItem[];
+  coffeeMenus: MenuItem[];
+};
+export default function Top({ menus, coffeeMenus }: Props) {
   const router = useRouter();
-  const [menus, setMenus] = useState<MenuItem[] | null>(
-    null
-  );
-  const [coffeeMenus, setCoffeeMenus] = useState<
-    MenuItem[] | null
-  >(null);
-
-  useEffect(() => {
-    // TODO どの画面、コンポーネントでデータ取得するのがいいか一般論を調査
-    getCardListItems().then((res) => setMenus(res));
-  }, []);
-
-  useEffect(() => {
-    // TODO どの画面、コンポーネントでデータ取得するのがいいか一般論を調査
-    getCoffeeItems().then((res) => setCoffeeMenus(res));
-  }, []);
 
   return (
     <>
@@ -87,7 +90,7 @@ export default function Top() {
               Order now
             </Button>
             {menus && <TextCardList items={menus} />}
-            <ImgCardList />
+            <ImgCardList items={imgItems} />
           </div>
         </section>
         <section>
@@ -109,3 +112,15 @@ export default function Top() {
 Top.getLayout = function getLayout(page: any) {
   return <Layout>{page}</Layout>;
 };
+
+export async function getStaticProps() {
+  const menus = await getCardListItems();
+  const coffeeMenus = await getCoffeeItems();
+
+  return {
+    props: {
+      menus,
+      coffeeMenus,
+    },
+  };
+}

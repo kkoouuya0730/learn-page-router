@@ -1,27 +1,19 @@
-import React, { useEffect, useState } from "react";
-import {
-  getImgCardListItems,
-  ImgItem,
-} from "./img-card-utils";
+import React from "react";
+import { ImgItem } from "./img-card-utils";
 import { ImgCard } from "@/components/elements/card/ImgCard";
 
-export default function ImgCardList() {
-  const [menus, setMenus] = useState<ImgItem[] | null>(
-    null
-  );
-
-  useEffect(() => {
-    getImgCardListItems().then((res) => setMenus(res));
-  }, []);
-
+type Props = {
+  items: ImgItem[];
+};
+export default function ImgCardList({ items }: Props) {
   return (
     <>
-      {menus && (
+      {items && (
         <ul className="flex space-x-1">
-          {menus.map((menu) => (
-            <li key={menu.src}>
+          {items.map((item) => (
+            <li key={item.src}>
               <ImgCard
-                src={menu.src}
+                src={item.src}
                 className="rounded-lg"
               ></ImgCard>
             </li>
