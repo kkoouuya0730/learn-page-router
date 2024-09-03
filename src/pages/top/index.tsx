@@ -50,7 +50,7 @@ export default function Top({ menus, coffeeMenus }: Props) {
                 <h1 className="font-bold text-3xl sm:text-6xl mb-2">
                   Discover our cafe
                 </h1>
-                <div className="hidden sm:block">
+                <div className="hidden lg:block">
                   <p>
                     We are a community-based coffee shop
                     located in the heart of North Beach. San
@@ -78,7 +78,7 @@ export default function Top({ menus, coffeeMenus }: Props) {
             <h2 className="font-bold text-3xl">
               Summer menu
             </h2>
-            <p className="w-full sm:w-1/2">
+            <p className="w-full lg:w-1/2">
               Cool off this summer with our exclusive
               seasonal coffee menu! Refreshing flavors you
               cannot miss—available for a limited time only!
