@@ -1,5 +1,9 @@
 import clsx from "clsx";
-import { ReactNode } from "react";
+import {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
 const colorProperties = [
   "primary",
@@ -10,9 +14,11 @@ const colorProperties = [
 type ColorProperties = (typeof colorProperties)[number];
 
 type ButtonProps = {
+  // iconとか使う場合、childrenの方がいいかもという思想
   children: ReactNode;
   color: ColorProperties;
-  onClick: React.MouseEventHandler<HTMLElement>;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  onClick?: React.MouseEventHandler<HTMLElement>;
 };
 
 const colorMapping: Record<
@@ -34,11 +40,13 @@ export default function Button({
   children,
   color,
   onClick,
+  type = "button",
 }: ButtonProps) {
   const style = colorMapping[color];
   return (
     <>
       <button
+        type={type}
         className={clsx([
           `font-semibold
            p-2
