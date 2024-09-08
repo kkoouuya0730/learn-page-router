@@ -3,8 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import NavigationParts from "./parts/Navigation";
 import Hamburger from "./parts/Hamburger";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter();
+  const handleSignUp = () => {
+    router.push("/signup");
+  };
+  const handleLogin = () => {
+    router.push("/login");
+  };
   return (
     <header className="border-b-2 border-gray-200">
       <div
@@ -32,16 +40,10 @@ export default function Header() {
           <NavigationParts />
         </div>
         <div className="flex items-center space-x-1">
-          <Button
-            color="primary"
-            onClick={() => console.log("click!")}
-          >
+          <Button color="primary" onClick={handleSignUp}>
             <p className="whitespace-nowrap">Sign Up</p>
           </Button>
-          <Button
-            color="tertiary"
-            onClick={() => console.log("cart click!")}
-          >
+          <Button color="tertiary" onClick={handleLogin}>
             Login
           </Button>
         </div>
