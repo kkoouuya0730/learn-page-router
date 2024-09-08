@@ -1,9 +1,5 @@
 import clsx from "clsx";
-import {
-  ButtonHTMLAttributes,
-  HTMLAttributes,
-  ReactNode,
-} from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 const colorProperties = [
   "primary",
@@ -19,6 +15,7 @@ type ButtonProps = {
   color: ColorProperties;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
   onClick?: React.MouseEventHandler<HTMLElement>;
+  className?: string | string[];
 };
 
 const colorMapping: Record<
@@ -41,6 +38,7 @@ export default function Button({
   color,
   onClick,
   type = "button",
+  className
 }: ButtonProps) {
   const style = colorMapping[color];
   return (
@@ -53,6 +51,7 @@ export default function Button({
            rounded-xl
           `,
           style.color,
+          className
         ])}
         onClick={onClick}
       >
