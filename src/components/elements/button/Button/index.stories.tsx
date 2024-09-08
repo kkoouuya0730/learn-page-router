@@ -16,7 +16,7 @@ type ButtonProps = StoryObj<typeof meta>;
 export const Primary: ButtonProps = {
   args: {
     color: "primary",
-    children: <>ログイン</>,
+    children: <>Add to Cart</>,
     onClick: () => alert("click!!"),
   },
 };
@@ -24,7 +24,7 @@ export const Primary: ButtonProps = {
 export const Secondary: ButtonProps = {
   args: {
     color: "secondary",
-    children: <>ログイン</>,
+    children: <>View Details</>,
     onClick: () => alert("click!!"),
   },
 };
@@ -32,7 +32,7 @@ export const Secondary: ButtonProps = {
 export const Tertiary: ButtonProps = {
   args: {
     color: "tertiary",
-    children: <>ログイン</>,
+    children: <>Learn More</>,
     onClick: () => alert("click!!"),
   },
 };

@@ -14,7 +14,7 @@ export default function Header() {
     router.push("/login");
   };
   return (
-    <header className="border-b-2 border-gray-200">
+    <header className="border-b-2 border-gray-200 bg-amber-400">
       <div
         className="
         flex
@@ -33,6 +33,7 @@ export default function Header() {
               width={140}
               height={20}
               alt="cafe 7pm - Home"
+              className="rounded-md"
             />
           </Link>
         </div>

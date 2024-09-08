@@ -47,7 +47,7 @@ export default function Top({ menus, coffeeMenus }: Props) {
                 className="rounded-2xl"
               />
               <div className="absolute left-4 top-1/3 text-white leading-relaxed">
-                <h1 className="font-bold text-3xl sm:text-6xl mb-2">
+                <h1 className="font-bold text-3xl sm:text-6xl mb-2 ">
                   Discover our cafe
                 </h1>
                 <div className="hidden lg:block">
@@ -75,7 +75,7 @@ export default function Top({ menus, coffeeMenus }: Props) {
         </section>
         <section>
           <div className="flex-col space-y-3">
-            <h2 className="font-bold text-3xl">
+            <h2 className="font-bold text-3xl text-amber-900">
               Summer menu
             </h2>
             <p className="w-full lg:w-1/2">
@@ -95,7 +95,7 @@ export default function Top({ menus, coffeeMenus }: Props) {
         </section>
         <section>
           <div className="flex-col space-y-3">
-            <h2 className="font-bold text-3xl">
+            <h2 className="font-bold text-3xl text-amber-900">
               Featured menu items
             </h2>
             <p>Our top picks for you</p>

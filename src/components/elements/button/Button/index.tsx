@@ -26,13 +26,13 @@ const colorMapping: Record<
   { color: string }
 > = {
   primary: {
-    color: "bg-amber-400 hover:bg-amber-500",
+    color: "bg-amber-400 hover:bg-amber-500 text-amber-900",
   },
   secondary: {
-    color: "bg-teal-500 hover:bg-teal-600",
+    color: "bg-amber-100 hover:bg-amber-200 text-amber-800",
   },
   tertiary: {
-    color: "border hover:bg-gray-100",
+    color: "text-amber-600 hover:text-amber-800 underline",
   },
 };
 
@@ -51,7 +51,6 @@ export default function Button({
           `font-semibold
            p-2
            rounded-xl
-           hover:shadow-sm
           `,
           style.color,
         ])}

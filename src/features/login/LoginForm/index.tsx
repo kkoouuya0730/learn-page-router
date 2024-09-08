@@ -37,7 +37,9 @@ export default function LoginForm() {
   const passwordId = useId();
   return (
     <div className="text-center">
-      <h1 className="font-bold text-3xl mb-2">ログイン</h1>
+      <h1 className="font-bold text-3xl mb-2 text-amber-900">
+        ログイン
+      </h1>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="mb-4">
           <p>

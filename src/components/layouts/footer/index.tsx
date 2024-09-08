@@ -6,8 +6,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="pb-2">
-      <div className="container mx-auto text-center text-yellow-800">
+    <footer className="pb-2 bg-amber-900 text-amber-100">
+      <div className="container mx-auto text-center">
         <div className="flex mb-2">
           <p className="flex-1">Privacy Policy</p>
           <p className="flex-1">Terms of Service</p>
