@@ -1,4 +1,5 @@
 import Button from "@/components/elements/button/Button";
+import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
 import ImgCardList from "@/features/top/ImgCardList";
 import { ImgItem } from "@/features/top/ImgCardList/img-card-utils";
@@ -47,9 +48,12 @@ export default function Top({ menus, coffeeMenus }: Props) {
                 className="rounded-2xl"
               />
               <div className="absolute left-4 top-1/3 text-white leading-relaxed">
-                <h1 className="font-bold text-3xl sm:text-6xl mb-2 ">
+                <CustomHeading
+                  tag="h1"
+                  className="sm:text-6xl mb-2"
+                >
                   Discover our cafe
-                </h1>
+                </CustomHeading>
                 <div className="hidden lg:block">
                   <p>
                     We are a community-based coffee shop

@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import RequiredLabel from "@/components/elements/text/RequiredLabel";
+import CustomHeading from "@/components/elements/text/CustomHeading";
 
 type Inputs = {
   email: string;
@@ -37,9 +38,9 @@ export default function LoginForm() {
   const passwordId = useId();
   return (
     <div className="text-center">
-      <h1 className="font-bold text-3xl mb-2 text-amber-900">
+      <CustomHeading tag="h1" className="mb-2">
         ログイン
-      </h1>
+      </CustomHeading>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="mb-4">
           <p>

@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import CustomHeading from "../../text/CustomHeading";
 
 type Props = {
   src: string;
@@ -33,9 +34,7 @@ export function ImgCard({
           alt={alt}
           className={clsx([className, "rounded-lg"])}
         />
-        <h3 className="text-2xl font-semibol text-amber-900">
-          {ledes}
-        </h3>
+        <CustomHeading tag="h3">{ledes}</CustomHeading>
         {typeof price !== "undefined" && (
           <p className="font-bold text-amber-600">
             ${price}
