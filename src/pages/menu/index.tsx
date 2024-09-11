@@ -1,29 +1,67 @@
+import Button from "@/components/elements/button/Button";
+import { ImgCard } from "@/components/elements/card/ImgCard";
+import SearchForm from "@/components/elements/form/SerachForm";
+import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
-import { MyInput } from "@/features/menu/MyInput";
-import { useRef } from "react";
 
 export default function Menu() {
-  const inputRef = useRef<HTMLInputElement>(null);
-  function handleClick() {
-    inputRef.current?.focus();
-  }
+  const list = [
+    {
+      ledes: "Espresso Blend",
+      price: 12.993,
+    },
+    {
+      ledes: "Espresso Blend",
+      price: 12.99,
+    },
+    {
+      ledes: "Espresso Blend",
+      price: 12.99,
+    },
+    {
+      ledes: "Espresso Blend",
+      price: 12.99,
+    },
+    {
+      ledes: "Espresso Blend",
+      price: 12.99,
+    },
+    {
+      ledes: "Espresso Blend",
+      price: 12.99,
+    },
+    {
+      ledes: "Espresso Blend",
+      price: 12.99,
+    },
+    {
+      ledes: "Espresso Blend",
+      price: 12.99,
+    },
+  ];
   return (
     <>
-      <div className="flex items-center justify-center">
-        <p className="grow flex">
-          <MyInput
-            ref={inputRef}
-            className="border rounded-lg mx-auto"
-          />
-        </p>
-        <p className="grow flex">
-          <button
-            onClick={handleClick}
-            className="bg-red-600 rounded-lg mx-auto"
-          >
-            Focus the Input
-          </button>
-        </p>
+      <div className="flex items-center justify-between mb-8">
+        <CustomHeading tag="h1">Our Products</CustomHeading>
+        <SearchForm />
+      </div>
+      <div className="grid justify-center items-center sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {list.map((l) => (
+          <>
+            <ImgCard
+              src="/images/coffee/coffee-2608864_1280.jpg"
+              ledes={l.ledes}
+              price={l.price}
+              className="w-full"
+            >
+              <p className="mx-auto">
+                <Button color="primary" className="w-full">
+                  Add to Cart
+                </Button>
+              </p>
+            </ImgCard>
+          </>
+        ))}
       </div>
     </>
   );

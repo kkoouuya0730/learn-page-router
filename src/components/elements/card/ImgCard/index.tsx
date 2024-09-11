@@ -16,8 +16,8 @@ type Props = {
 
 export function ImgCard({
   src,
-  width = 300,
-  height = 300,
+  width = 200,
+  height = 200,
   alt = "",
   ledes,
   price,
@@ -26,7 +26,7 @@ export function ImgCard({
 }: Props) {
   return (
     <>
-      <div className="rounded-md bg-white p-4 flex-col space-y-3">
+      <div className="rounded-md bg-white p-4 flex-col space-y-3 w-fit shadow-md">
         <Image
           src={src}
           width={width}
