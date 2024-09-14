@@ -35,7 +35,9 @@ export default function LoginForm() {
   };
 
   const emailId = useId();
+  const emailErrorId = useId();
   const passwordId = useId();
+  const passwordErrorId = useId();
   return (
     <div className="text-center">
       <CustomHeading tag="h1" className="mb-2">
@@ -54,16 +56,15 @@ export default function LoginForm() {
             type="email"
             {...register("email")}
             className="border rounded-lg"
-            // aria-label="メールアドレス"
-            aria-required="true"
+            aria-label="メールアドレス"
             aria-invalid={errors.email ? true : false}
             aria-describedby={
-              errors.email ? "email-error" : undefined
+              errors.email ? emailErrorId : undefined
             }
             autoComplete="email"
           />
           {errors.email && (
-            <p id="email-error" role="alert">
+            <p id={emailErrorId} role="alert">
               {errors.email.message}
             </p>
           )}
@@ -81,16 +82,15 @@ export default function LoginForm() {
             type="password"
             {...register("password")}
             className="border rounded-lg"
-            // aria-label="パスワード"
-            aria-required="true"
+            aria-label="パスワード"
             aria-invalid={errors.password ? true : false}
             aria-describedby={
-              errors.password ? "password-error" : undefined
+              errors.password ? passwordErrorId : undefined
             }
             required
           />
           {errors.password && (
-            <p id="password-error" role="alert">
+            <p id={passwordErrorId} role="alert">
               {errors.password.message}
             </p>
           )}

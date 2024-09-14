@@ -8,5 +8,6 @@
   },
   "specs": {
     "\\.tsx$": "@markuplint/react-spec"
-  }
+  },
+  "excludeFiles": ["./src/stories"]
 }

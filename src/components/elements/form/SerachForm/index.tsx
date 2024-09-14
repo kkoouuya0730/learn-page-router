@@ -8,6 +8,7 @@ export default function SearchForm({}) {
         <input
           type="text"
           className="border rounded-lg pl-10 text-amber-700"
+          aria-label="検索"
         />
       </div>
     </>
