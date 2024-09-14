@@ -17,22 +17,22 @@ export default function Footer() {
         </div>
         <div className="flex justify-center space-x-5 mb-2">
           <p>
-            <a target="_blank" href="https://google.com">
+            <a target="_blank" href="https://google.com" aria-label="Facebookへのリンク">
               <FacebookIcon />
             </a>
           </p>
           <p>
-            <a target="_blank" href="https://google.com">
+            <a target="_blank" href="https://google.com" aria-label="Twitterへのリンク">
               <TwitterIcon />
             </a>
           </p>
           <p>
-            <a target="_blank" href="https://google.com">
+            <a target="_blank" href="https://google.com" aria-label="Instagramへのリンク">
               <InstagramIcon />
             </a>
           </p>
           <p>
-            <a target="_blank" href="https://google.com">
+            <a target="_blank" href="https://google.com" aria-label="Youtubeへのリンク">
               <YoutubeIcon />
             </a>
           </p>
