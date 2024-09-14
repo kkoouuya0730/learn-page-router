@@ -29,7 +29,8 @@ const colorMapping: Record<
     color: "bg-amber-100 hover:bg-amber-200 text-amber-800",
   },
   tertiary: {
-    color: "text-amber-600 hover:text-amber-800 underline",
+    color:
+      "text-amber-600 hover:text-amber-800 hover:underline",
   },
 };
 
@@ -38,7 +39,7 @@ export default function Button({
   color,
   onClick,
   type = "button",
-  className
+  className,
 }: ButtonProps) {
   const style = colorMapping[color];
   return (
@@ -51,7 +52,7 @@ export default function Button({
            rounded-xl
           `,
           style.color,
-          className
+          className,
         ])}
         onClick={onClick}
       >
