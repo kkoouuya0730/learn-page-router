@@ -53,9 +53,9 @@ export default function Store() {
         </div>
         <div className="grid space-y-4">
           {storeList.map((store) => (
-            <p key={store.storeInfo.storeName}>
+            <div key={store.storeInfo.storeName}>
               <StoreCard storeInfo={store.storeInfo} />
-            </p>
+            </div>
           ))}
         </div>
       </div>
