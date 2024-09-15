@@ -1,6 +1,6 @@
 import Button from "@/components/elements/button/Button";
 import { ImgCard } from "@/components/elements/card/ImgCard";
-import SearchForm from "@/components/elements/form/SerachForm";
+import SearchForm from "@/components/elements/form/SearchForm";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
 

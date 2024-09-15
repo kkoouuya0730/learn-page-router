@@ -1,5 +1,5 @@
 "use client";
-import SearchForm from "@/components/elements/form/SerachForm";
+import SearchForm from "@/components/elements/form/SearchForm";
 import GoogleMap from "@/components/elements/google-map";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
