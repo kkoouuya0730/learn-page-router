@@ -2,16 +2,22 @@ import { GoogleMapsEmbed } from "@next/third-parties/google";
 
 const googleApiKey =
   process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "";
-export default function GoogleMap() {
+
+type Props = {
+  width?: string | number;
+  height?: string | number;
+};
+export default function GoogleMap({
+  width = "100%",
+  height = "100%",
+}: Props) {
   return (
-    <p className="p-3 bg-white rounded-lg">
-      <GoogleMapsEmbed
-        apiKey={googleApiKey}
-        height={200}
-        width="100%"
-        mode="place"
-        q="東京タワー"
-      />
-    </p>
+    <GoogleMapsEmbed
+      apiKey={googleApiKey}
+      height={height}
+      width={width}
+      mode="place"
+      q="東京タワー"
+    />
   );
 }
