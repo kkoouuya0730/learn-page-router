@@ -1,12 +1,10 @@
 import clsx from "clsx";
-import React, { ReactNode } from "react";
+import React from "react";
 
 // h1~h6を受け取って対応するheadingを返したい
 type Props = {
   tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  className?: string | string[];
-  children: ReactNode;
-};
+} & React.ComponentPropsWithoutRef<"h1">;
 
 const headingStyleMapping: {
   [key in Props["tag"]]: string;
@@ -22,11 +20,12 @@ export default function CustomHeading({
   tag,
   className,
   children,
+  ...props
 }: Props) {
   const Tag = tag;
   const tagStyle = headingStyleMapping[tag];
   return (
-    <Tag className={clsx([className, tagStyle])}>
+    <Tag className={clsx([className, tagStyle])} {...props}>
       {children}
     </Tag>
   );
