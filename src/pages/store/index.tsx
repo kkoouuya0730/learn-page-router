@@ -1,49 +1,59 @@
 "use client";
+
 import SearchForm from "@/components/elements/form/SearchForm";
 import GoogleMap from "@/components/elements/google-map";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
-import StoreCard from "@/features/store/StoreCard";
+import { StoreCard } from "@/features/store/StoreCard";
+import { StoreDetailDialog } from "@/features/store/StoreDetailDialog";
+import { StoreInfo } from "@/types/store";
 import { useEffect, useRef, useState } from "react";
 
-const storeList = [
+const storeList: StoreInfo[] = [
   {
-    storeInfo: {
-      storeName: "Downtown Cafe",
-      address: "123 Main St, City Center",
-      phoneNumber: "123-456-7890",
-      businessHours: {
-        open: "10:00",
-        close: "23:00",
-      },
+    storeName: "Downtown Cafe",
+    address: "123 Main St, City Center",
+    description:
+      "Our flagship store in the heart of downtown. Enjoy artisanal coffee in a cozy atmosphere.",
+    phoneNumber: "123-456-7890",
+    businessHours: {
+      open: "10:00",
+      close: "23:00",
     },
   },
   {
-    storeInfo: {
-      storeName: "Riverside Espresso",
-      address: "456 River Rd, Waterfront",
-      phoneNumber: "123-456-7890",
-      businessHours: {
-        open: "10:00",
-        close: "23:00",
-      },
+    storeName: "Riverside Espresso",
+    description:
+      "Our flagship store in the heart of downtown. Enjoy artisanal coffee in a cozy atmosphere.",
+    address: "456 River Rd, Waterfront",
+    phoneNumber: "123-456-7890",
+    businessHours: {
+      open: "10:00",
+      close: "23:00",
     },
   },
+
   {
-    storeInfo: {
-      storeName: "Hilltop Coffee House",
-      address: "123 Main St, City Center",
-      phoneNumber: "123-456-7890",
-      businessHours: {
-        open: "10:00",
-        close: "23:00",
-      },
+    storeName: "Hilltop Coffee House",
+    description:
+      "Our flagship store in the heart of downtown. Enjoy artisanal coffee in a cozy atmosphere.",
+    address: "123 Main St, City Center",
+    phoneNumber: "123-456-7890",
+    businessHours: {
+      open: "10:00",
+      close: "23:00",
     },
   },
 ];
 export default function Store() {
   const [mapHeight, setMapHeight] = useState(200);
   const mapContainerRef = useRef<HTMLDivElement>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedStoreInfo, setSelectedStoreInfo] =
+    useState<StoreInfo | null>(null);
+
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
 
   useEffect(() => {
     const updateHeight = () => {
@@ -84,13 +94,24 @@ export default function Store() {
           </div>
           <div className="grid space-y-4">
             {storeList.map((store) => (
-              <div key={store.storeInfo.storeName}>
-                <StoreCard storeInfo={store.storeInfo} />
+              <div key={store.storeName}>
+                <StoreCard
+                  storeInfo={store}
+                  openModal={openDialog}
+                  selectStore={setSelectedStoreInfo}
+                />
               </div>
             ))}
           </div>
         </div>
       </div>
+      {selectedStoreInfo && (
+        <StoreDetailDialog
+          isOpen={isDialogOpen}
+          storeInfo={selectedStoreInfo}
+          onClose={closeDialog}
+        />
+      )}
     </>
   );
 }
