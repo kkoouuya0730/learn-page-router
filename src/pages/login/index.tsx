@@ -5,9 +5,11 @@ import LoginForm from "@/features/login/LoginForm";
 export default function Login() {
   return (
     <>
-      <CustomHeading tag="h1" className="mb-2">
-        ログイン
-      </CustomHeading>
+      <div className="text-center">
+        <CustomHeading tag="h1" className="mb-2">
+          ログイン
+        </CustomHeading>
+      </div>
       <LoginForm />
     </>
   );
