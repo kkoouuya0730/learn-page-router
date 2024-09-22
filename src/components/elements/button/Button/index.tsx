@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { ButtonHTMLAttributes, ReactNode } from "react";
 
 const colorProperties = [
   "primary",
@@ -10,36 +9,32 @@ const colorProperties = [
 type ColorProperties = (typeof colorProperties)[number];
 
 type ButtonProps = {
-  // iconとか使う場合、childrenの方がいいかもという思想
-  children: ReactNode;
   color: ColorProperties;
-  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
-  onClick?: React.MouseEventHandler<HTMLElement>;
-  className?: string | string[];
-};
+} & React.ComponentPropsWithoutRef<"button">;
 
 const colorMapping: Record<
   ColorProperties,
-  { color: string }
+  { basic: string; disabled: string }
 > = {
   primary: {
-    color: "bg-amber-400 hover:bg-amber-500 text-amber-900",
+    basic: "bg-amber-400 hover:bg-amber-500 text-amber-900",
+    disabled: "bg-amber-200 text-amber-500",
   },
   secondary: {
-    color: "bg-amber-100 hover:bg-amber-200 text-amber-800",
+    basic: "bg-amber-100 hover:bg-amber-200 text-amber-800",
+    disabled: "bg-amber-50 text-amber-300",
   },
   tertiary: {
-    color:
+    basic:
       "text-amber-600 hover:text-amber-800 hover:underline",
+    disabled: "text-amber-300",
   },
 };
 
 export default function Button({
-  children,
   color,
-  onClick,
   type = "button",
-  className,
+  ...props
 }: ButtonProps) {
   const style = colorMapping[color];
   return (
@@ -51,12 +46,11 @@ export default function Button({
            p-2
            rounded-xl
           `,
-          style.color,
-          className,
+          props.disabled ? style.disabled : style.basic,
         ])}
-        onClick={onClick}
+        {...props}
       >
-        {children}
+        {props.children}
       </button>
     </>
   );

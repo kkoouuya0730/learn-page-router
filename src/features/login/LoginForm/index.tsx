@@ -1,10 +1,10 @@
+"use client";
 import Button from "@/components/elements/button/Button";
-import React, { useId } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import RequiredLabel from "@/components/elements/text/RequiredLabel";
-import CustomHeading from "@/components/elements/text/CustomHeading";
+import { TextForm } from "@/components/elements/form/TextForm";
 
 type Inputs = {
   email: string;
@@ -12,6 +12,7 @@ type Inputs = {
 };
 
 export default function LoginForm() {
+  const [buttonValid, setButtonValid] = useState(true);
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is required")
@@ -25,83 +26,80 @@ export default function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
+    reset,
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
+    reset();
   };
 
-  const emailId = useId();
+  useEffect(() => {
+    isValid ? setButtonValid(false) : setButtonValid(true);
+  }, [isValid]);
+
   const emailErrorId = useId();
-  const passwordId = useId();
   const passwordErrorId = useId();
   return (
-    <div className="text-center">
-      <CustomHeading tag="h1" className="mb-2">
-        ログイン
-      </CustomHeading>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <div className="mb-4">
-          <p>
-            <label htmlFor={emailId} className="mr-4">
-              Email
-            </label>
-            <RequiredLabel />
+    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <div className="mb-4">
+        <TextForm
+          type="email"
+          label="Email"
+          isRequired={true}
+          iconType="email"
+          {...register("email")}
+          aria-invalid={errors.email ? true : false}
+          aria-describedby={
+            errors.email ? emailErrorId : undefined
+          }
+        />
+        {errors.email && (
+          <p
+            id={emailErrorId}
+            role="alert"
+            className="text-red-500"
+          >
+            {errors.email.message}
           </p>
-          <input
-            id={emailId}
-            type="email"
-            {...register("email")}
-            className="border rounded-lg"
-            aria-label="メールアドレス"
-            aria-invalid={errors.email ? true : false}
-            aria-describedby={
-              errors.email ? emailErrorId : undefined
-            }
-            autoComplete="email"
-          />
-          {errors.email && (
-            <p id={emailErrorId} role="alert">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
+        )}
+      </div>
 
-        <div className="mb-2">
-          <p>
-            <label htmlFor={passwordId} className="mr-4">
-              Password
-            </label>
-            <RequiredLabel />
+      <div className="mb-4">
+        <TextForm
+          type="password"
+          label="Password"
+          isRequired={true}
+          iconType="password"
+          {...register("password")}
+          aria-invalid={errors.password ? true : false}
+          aria-describedby={
+            errors.password ? passwordErrorId : undefined
+          }
+        />
+        {errors.password && (
+          <p
+            id={passwordErrorId}
+            role="alert"
+            className="text-red-500"
+          >
+            {errors.password.message}
           </p>
-          <input
-            id={passwordId}
-            type="password"
-            {...register("password")}
-            className="border rounded-lg"
-            aria-label="パスワード"
-            aria-invalid={errors.password ? true : false}
-            aria-describedby={
-              errors.password ? passwordErrorId : undefined
-            }
-            required
-          />
-          {errors.password && (
-            <p id={passwordErrorId} role="alert">
-              {errors.password.message}
-            </p>
-          )}
-        </div>
+        )}
+      </div>
 
-        <p>
-          <Button type="submit" color="primary">
-            ログイン
-          </Button>
-        </p>
-      </form>
-    </div>
+      <p className="text-center">
+        <Button
+          type="submit"
+          color="primary"
+          disabled={buttonValid}
+        >
+          ログイン
+        </Button>
+      </p>
+    </form>
   );
 }
