@@ -5,7 +5,7 @@ import {
 } from ".";
 
 const meta = {
-  title: "Dialog/StoreDetailDialog",
+  title: "Features/store/StoreDetailDialog",
   parameters: {
     layout: "centered",
   },

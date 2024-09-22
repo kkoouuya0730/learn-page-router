@@ -3,7 +3,7 @@ import { ImgCard } from ".";
 import Button from "../../button/Button";
 
 const meta = {
-  title: "Text/ImgCard",
+  title: "elements/card/ImgCard",
   parameters: {
     layout: "centered",
   },

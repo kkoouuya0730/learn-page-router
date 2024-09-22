@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import GoogleMap from ".";
 
 const meta = {
-  title: "GoogleMap",
+  title: "elements/google-map/GoogleMap",
   component: GoogleMap,
 } satisfies Meta<typeof GoogleMap>;
 

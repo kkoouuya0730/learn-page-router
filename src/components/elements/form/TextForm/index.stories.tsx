@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { TextForm } from ".";
 
 const meta = {
-  title: "Form/TextForm",
+  title: "elements/form/TextForm",
   parameters: {
     layout: "centered",
   },

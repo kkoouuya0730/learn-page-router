@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import CustomHeading from ".";
 
 const meta = {
-  title: "Text/CustomHeading",
+  title: "elements/text/CustomHeading",
   component: CustomHeading,
   parameters: {
     layout: "centered",

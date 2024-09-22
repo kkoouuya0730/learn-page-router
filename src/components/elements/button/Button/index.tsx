@@ -40,15 +40,16 @@ export default function Button({
   return (
     <>
       <button
+        {...props}
         type={type}
         className={clsx([
           `font-semibold
            p-2
            rounded-xl
           `,
+          props.className,
           props.disabled ? style.disabled : style.basic,
         ])}
-        {...props}
       >
         {props.children}
       </button>
