@@ -47,20 +47,18 @@ export default function Menu() {
       </div>
       <div className="grid justify-center items-center sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {list.map((l) => (
-          <>
-            <ImgCard
-              src="/images/coffee/coffee-2608864_1280.jpg"
-              ledes={l.ledes}
-              price={l.price}
-              className="w-full"
-            >
-              <p className="mx-auto">
-                <Button color="primary" className="w-full">
-                  Add to Cart
-                </Button>
-              </p>
-            </ImgCard>
-          </>
+          <ImgCard
+            src="https://picsum.photos/400/200"
+            ledes={l.ledes}
+            price={l.price}
+            className="w-full"
+          >
+            <p className="mx-auto">
+              <Button color="primary" className="w-full">
+                Add to Cart
+              </Button>
+            </p>
+          </ImgCard>
         ))}
       </div>
     </>

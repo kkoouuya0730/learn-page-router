@@ -6,6 +6,7 @@ import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
 
 import { Menu } from "@/types/menu";
+import { ImgCard } from "@/components/elements/card/ImgCard";
 
 type Props = {
   data: {
@@ -15,15 +16,23 @@ type Props = {
 export default function Home({ data }: Props) {
   const router = useRouter();
 
-  const itemList = data.menus;
+  const itemList = data.menus
+    .map((menu) => {
+      return {
+        src: menu.imgSrc,
+        ledes: menu.name,
+        price: menu.price,
+      };
+    })
+    .slice(1, Infinity);
 
   return (
     <div className="grid gap-4">
       <div className="relative">
         <Image
           alt="image"
-          src="/images/hero-icon.jpg"
-          width={1200}
+          src="https://picsum.photos/1500/1000"
+          width={1500}
           height={1000}
           className="rounded-2xl"
         />
@@ -75,6 +84,20 @@ export default function Home({ data }: Props) {
           Featured menu items
         </CustomHeading>
         <p>Our top picks for you</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {itemList.map((item) => (
+            <ImgCard
+              key={item.ledes}
+              src={item.src}
+              ledes={item.ledes}
+              price={item.price}
+              width={300}
+              height={200}
+            >
+              <Button color="primary">Add to Cart</Button>
+            </ImgCard>
+          ))}
+        </div>
       </div>
     </div>
   );
