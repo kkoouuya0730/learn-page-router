@@ -11,8 +11,8 @@ const navigationList: NavigationItem[] = [
     title: "Menu",
   },
   {
-    href: "/rewards",
-    title: "Rewards",
+    href: "/blog",
+    title: "Blog",
   },
   {
     href: "/gift",
