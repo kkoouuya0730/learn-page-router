@@ -7,14 +7,12 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <>
-      <div className="bg-amber-50 flex flex-col min-h-screen">
-        <Header />
-        <main className="mx-4 md:mx-[200px] lg:mx-[300px] my-5 flex-grow">
-          {children}
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className="bg-amber-50 flex flex-col min-h-screen">
+      <Header />
+      <main className="w-3/5 mx-auto my-10 flex-grow">
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 }
