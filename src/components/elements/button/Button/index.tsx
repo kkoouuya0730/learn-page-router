@@ -38,21 +38,19 @@ export default function Button({
 }: ButtonProps) {
   const style = colorMapping[color];
   return (
-    <>
-      <button
-        {...props}
-        type={type}
-        className={clsx([
-          `font-semibold
+    <button
+      {...props}
+      type={type}
+      className={clsx([
+        `font-semibold
            p-2
            rounded-xl
           `,
-          props.className,
-          props.disabled ? style.disabled : style.basic,
-        ])}
-      >
-        {props.children}
-      </button>
-    </>
+        props.className,
+        props.disabled ? style.disabled : style.basic,
+      ])}
+    >
+      {props.children}
+    </button>
   );
 }
