@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-export function HeratIcon(props: SVGProps<SVGSVGElement>) {
+export function HeartIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"

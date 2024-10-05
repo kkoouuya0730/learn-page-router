@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Blog } from "@/types/blog";
-import { HeratIcon } from "@/ui/icon/HeartIcon";
+import { HeartIcon } from "@/ui/icon/HeartIcon";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Link from "next/link";
 
@@ -47,7 +47,7 @@ export function BlogListItem({ blog }: Props) {
             {blog.author.username}
           </Link>
           <span className="flex items-center text-amber-300">
-            <HeratIcon className="mr-1" />
+            <HeartIcon className="mr-1" />
             {blog.likes}
           </span>
         </div>
