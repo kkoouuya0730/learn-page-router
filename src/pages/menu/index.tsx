@@ -52,6 +52,7 @@ export default function Menu() {
             ledes={l.ledes}
             price={l.price}
             className="w-full"
+            key={l.ledes}
           >
             <p className="mx-auto">
               <Button color="primary" className="w-full">
