@@ -8,10 +8,7 @@ export type UserInfo = {
   age: string;
   description: string;
   email: string;
-  loginInfo: {
-    userId: string;
-    password: string;
-  };
+  password: string;
   registered: string;
   phone: string;
   thumbnail: string;

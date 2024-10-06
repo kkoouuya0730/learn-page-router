@@ -25,10 +25,7 @@ export default function handler(
         description:
           "Coffee enthusiast and brewing expert.",
         email: "john.doe@example.com",
-        loginInfo: {
-          userId: "john35",
-          password: "securePassword123",
-        },
+        password: "securePassword123",
         registered: "2022-01-15",
         phone: "123-456-7890",
         thumbnail: "/images/authors/john-doe.jpg",
@@ -55,10 +52,8 @@ export default function handler(
         age: "28",
         description: "Barista and espresso aficionado.",
         email: "jane.smith@example.com",
-        loginInfo: {
-          userId: "jane28",
-          password: "passwordEspresso!",
-        },
+
+        password: "passwordEspresso!",
         registered: "2021-06-10",
         phone: "234-567-8901",
         thumbnail: "/images/authors/jane-smith.jpg",
@@ -86,10 +81,7 @@ export default function handler(
         description:
           "Cold brew specialist and coffee blogger.",
         email: "michael.johnson@example.com",
-        loginInfo: {
-          userId: "michael30",
-          password: "coldbrewCoffee1",
-        },
+        password: "coldbrewCoffee1",
         registered: "2020-11-20",
         phone: "345-678-9012",
         thumbnail: "/images/authors/michael-johnson.jpg",

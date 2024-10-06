@@ -7,11 +7,9 @@ export type Menu = {
   subImages?: string[];
   description: string;
   review: Review;
-  detail: {
-    roasting: Roasting;
-    country: string;
-    manufacturing: Manufacturing;
-  };
+  roasting: Roasting;
+  country: string;
+  manufacturing: Manufacturing;
   flavor: string[];
 };
 

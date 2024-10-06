@@ -4,7 +4,6 @@ import CustomRadio from "@/components/elements/button/Radio";
 import ReviewScore from "@/components/elements/reviewStar";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import { Menu } from "@/types/menu";
-import { CartIcon } from "@/ui/icon/CartIcon";
 import { HeartIcon } from "@/ui/icon/HeartIcon";
 import Image from "next/image";
 
@@ -19,7 +18,9 @@ export default function MenuDetail({ menuDetail }: Props) {
     subImages,
     description,
     review,
-    detail,
+    roasting,
+    country,
+    manufacturing,
     flavor,
   } = menuDetail;
   const radioValue = [
@@ -90,9 +91,9 @@ export default function MenuDetail({ menuDetail }: Props) {
       </p>
       <div className="bg-white rounded-lg shadow-lg p-6 text-amber-700 grid gap-2">
         <CustomHeading tag="h2">Item Detail</CustomHeading>
-        <p>Roasting：{detail.roasting}</p>
-        <p>Country：{detail.country}</p>
-        <p>Manufacturing：{detail.manufacturing}</p>
+        <p>Roasting：{roasting}</p>
+        <p>Country：{country}</p>
+        <p>Manufacturing：{manufacturing}</p>
         <CustomHeading tag="h3" className="text-amber-900">
           Flavor Notes
         </CustomHeading>
