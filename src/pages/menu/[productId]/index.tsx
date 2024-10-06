@@ -1,5 +1,6 @@
 import Button from "@/components/elements/button/Button";
 import CartButton from "@/components/elements/button/CartButton";
+import CustomRadio from "@/components/elements/button/Radio";
 import ReviewScore from "@/components/elements/reviewStar";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import { Menu } from "@/types/menu";
@@ -21,6 +22,26 @@ export default function MenuDetail({ menuDetail }: Props) {
     detail,
     flavor,
   } = menuDetail;
+  const radioValue = [
+    {
+      id: "fdfafda",
+      name: "size",
+      value: "250g",
+      label: "250g",
+    },
+    {
+      id: "tergfb",
+      name: "size",
+      value: "500g",
+      label: "500g",
+    },
+    {
+      id: "hytrhth",
+      name: "size",
+      value: "1kg",
+      label: "1kg",
+    },
+  ];
   return (
     <div className="grid gap-4">
       <p className="p-4 bg-white rounded-lg shadow-lg">
@@ -52,6 +73,13 @@ export default function MenuDetail({ menuDetail }: Props) {
         <b className="text-lg text-amber-900">${price}</b>
       </p>
       <p className="text-amber-700">{description}</p>
+      <p>
+        <CustomRadio
+          radioValue={radioValue}
+          label="Select Size"
+          isColum
+        />
+      </p>
       <p className="flex space-x-2">
         <CartButton color="primary" className="flex-1">
           Add to Cart
