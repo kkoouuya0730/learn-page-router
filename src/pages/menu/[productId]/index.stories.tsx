@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import MenuDetail from ".";
+import { Roasting } from "@prisma/client";
 
 const meta = {
   title: "Page/MenuDetail",
@@ -13,6 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     menuDetail: {
+      id: "",
       name: "Ethiopia Yirgacheffe Natural",
       price: 18,
       imgSrc: "https://picsum.photos/320/320",
@@ -24,11 +26,12 @@ export const Primary: Story = {
       description:
         "This specialty coffee from Ethiopia has a fruity aroma and sweet flavor. You will enjoy its rich flavor reminiscent of blueberries and strawberries, and its smooth taste.",
       review: {
+        id: "",
         score: 3,
         title: "good",
         content: "good",
       },
-      roasting: "Light",
+      roasting: Roasting.CINNAMON,
       country: "Ethiopia",
       manufacturing: "Natural",
       flavor: ["Blueberry", "Strawberry", "Dark Chocolate"],

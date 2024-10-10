@@ -1,10 +1,10 @@
 import Button from "@/components/elements/button/Button";
 import CartButton from "@/components/elements/button/CartButton";
 import CustomRadio from "@/components/elements/button/Radio";
-import ReviewScore from "@/components/elements/reviewStar";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import { Menu } from "@/types/menu";
 import { HeartIcon } from "@/ui/icon/HeartIcon";
+import ReviewScore from "@/ui/reviewStar";
 import Image from "next/image";
 
 type Props = {

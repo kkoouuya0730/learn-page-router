@@ -1,7 +1,7 @@
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
-import { BlogListItem } from "@/features/blog/BlogLlistItem";
 import { Blog } from "@/types/blog";
+import { BlogListItem } from "./parts/BlogListItem";
 
 type Props = {
   data: {

@@ -1,21 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { StoreCard } from ".";
+import {
+  StoreDetailDialog,
+  StoreDetailDialogProps,
+} from ".";
 
 const meta = {
-  title: "Features/store/StoreCard",
-  component: StoreCard,
+  title: "Features/store/StoreDetailDialog",
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof StoreCard>;
+  component: StoreDetailDialog,
+} satisfies Meta<typeof StoreDetailDialog>;
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type StoreDetailDialog = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+const Example = (props: StoreDetailDialogProps) => {
+  return <StoreDetailDialog {...props} />;
+};
+
+export const Primary: StoreDetailDialog = {
   args: {
     storeInfo: {
+      id: "",
       storeName: "Downtown Cafe",
       description:
         "Our flagship store in the heart of downtown. Enjoy artisanal coffee in a cozy atmosphere.",
@@ -26,7 +34,7 @@ export const Primary: Story = {
         close: "23:00",
       },
     },
-    openModal: () => alert("Open Modal!"),
-    selectStore: () => alert("View Details!"),
+    onClose: () => alert("Close Modal!"),
+    isOpen: false,
   },
 };

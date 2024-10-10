@@ -9,16 +9,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import { StoreInfo } from "@/types/store";
 
 type Props = {
-  storeInfo: {
-    storeName: string;
-    description: string;
-    address: string;
-    phoneNumber: string;
-    businessHours: {
-      open: string;
-      close: string;
-    };
-  };
+  storeInfo: StoreInfo;
   openModal: () => void;
   selectStore: Dispatch<SetStateAction<StoreInfo | null>>;
 };

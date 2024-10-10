@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { BlogListItem } from ".";
+import { Gender } from "@prisma/client";
 const meta = {
   title: "Features/blog/BlogListItem",
   parameters: {
@@ -20,24 +21,21 @@ export const Default: Story = {
         "インデックスとは何？MySQL(InnoDB)とPostgreSQLのインデックスの違いとは？調べてみました",
       thumbnail: "/images/cold-brew-exploration.jpg",
       author: {
-        name: {
-          firstName: "Michael",
-          lastName: "Johnson",
-        },
+        id: "",
         username: "coldbrew_mike",
-        gender: "man",
+        gender: Gender.MAN,
         age: "30",
         description:
           "Cold brew specialist and coffee blogger.",
         email: "michael.johnson@example.com",
         password: "coldbrewCoffee1",
-        registered: "2020-11-20",
         phone: "345-678-9012",
         thumbnail: "/images/authors/michael-johnson.jpg",
         github: "https://github.com/michaeljohnson",
         twitter: "https://twitter.com/mikecoldbrew",
         instagram: "https://instagram.com/michaeljohnson",
       },
+      authorId: "",
       tag: ["Cold Brew", "Summer", "Coffee"],
       likes: 145,
       contents:

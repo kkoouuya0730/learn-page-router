@@ -4,13 +4,15 @@ import SearchForm from "@/components/elements/form/SearchForm";
 import GoogleMap from "@/components/elements/google-map";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
-import { StoreCard } from "@/features/store/StoreCard";
-import { StoreDetailDialog } from "@/features/store/StoreDetailDialog";
+
 import { StoreInfo } from "@/types/store";
 import { useEffect, useRef, useState } from "react";
+import { StoreCard } from "./parts/StoreCard";
+import { StoreDetailDialog } from "./parts/StoreDetailDialog";
 
 const storeList: StoreInfo[] = [
   {
+    id: "",
     storeName: "Downtown Cafe",
     address: "123 Main St, City Center",
     description:
@@ -22,6 +24,7 @@ const storeList: StoreInfo[] = [
     },
   },
   {
+    id: "",
     storeName: "Riverside Espresso",
     description:
       "Our flagship store in the heart of downtown. Enjoy artisanal coffee in a cozy atmosphere.",
@@ -34,6 +37,7 @@ const storeList: StoreInfo[] = [
   },
 
   {
+    id: "",
     storeName: "Hilltop Coffee House",
     description:
       "Our flagship store in the heart of downtown. Enjoy artisanal coffee in a cozy atmosphere.",

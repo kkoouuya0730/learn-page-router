@@ -1,6 +1,6 @@
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
-import LoginForm from "@/features/login/LoginForm";
+import LoginForm from "./parts/LoginForm";
 
 export default function Login() {
   return (
