@@ -4,6 +4,7 @@ export type Blog = {
   title: string;
   thumbnail: string;
   author: UserInfo;
+  aythorId: UserInfo['id']
   tag: string[];
   likes: number;
   contents: string;

@@ -1,15 +1,15 @@
+
+const genderValue = ["MAN", "WOMAN"] as const;
+type Gender = (typeof genderValue)[number];
+
 export type UserInfo = {
-  name: {
-    firstName: string;
-    lastName: string;
-  };
+  id: string;
   username: string;
-  gender: "man" | "woman";
+  gender: Gender;
   age: string;
   description: string;
   email: string;
   password: string;
-  registered: string;
   phone: string;
   thumbnail: string;
   github: string;
