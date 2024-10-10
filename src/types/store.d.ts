@@ -1,4 +1,5 @@
 export type StoreInfo = {
+  id: string;
   storeName: string;
   description: string;
   address: string;

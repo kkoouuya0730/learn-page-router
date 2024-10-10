@@ -16,6 +16,7 @@
     "@egoist/tailwindcss-icons": "^1.8.1",
     "@hookform/resolvers": "^3.9.0",
     "@next/third-parties": "^14.2.11",
+    "@prisma/client": "^5.20.0",
     "clsx": "^2.1.1",
     "next": "^14.2.11",
     "react": "^18",
@@ -40,7 +41,7 @@
     "@storybook/nextjs": "^8.2.9",
     "@storybook/react": "^8.2.9",
     "@storybook/test": "^8.2.9",
-    "@types/node": "^20",
+    "@types/node": "^20.16.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
@@ -48,8 +49,13 @@
     "eslint-plugin-storybook": "^0.8.0",
     "markuplint": "^4.9.3",
     "postcss": "^8",
+    "prisma": "^5.20.0",
     "storybook": "^8.2.9",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }

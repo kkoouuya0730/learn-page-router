@@ -1,32 +1,36 @@
 import { Review } from "./review";
 
 export type Menu = {
+  id: string;
   name: string;
   price: number;
   imgSrc: string;
   subImages?: string[];
   description: string;
-  review: Review;
-  detail: {
-    roasting: Roasting;
-    country: string;
-    manufacturing: Manufacturing;
-  };
+  review: Review[] | null;
+  roasting: Roasting;
+  country: string;
+  manufacturing: Manufacturing;
   flavor: string[];
 };
 
-type Roasting =
-  | "Light"
-  | "Cinnamon"
-  | "Medium"
-  | "High"
-  | "City"
-  | "Fullcity"
-  | "French"
-  | "Italian";
+const roastingValue = [
+  "LIGHT",
+  "CINNAMON",
+  "MEDIUM",
+  "HIGH",
+  "CITY",
+  "FULLCITY",
+  "FRENCH",
+  "ITALIAN",
+] as const;
 
-type Manufacturing =
-  | "Washed"
-  | "Natural"
-  | "SemiWashed"
-  | "Unknown";
+type Roasting = (typeof roastingValue)[number];
+
+const manufacturingValue = [
+  "WASHED",
+  "NATURAL",
+  "SEMIWASHED",
+  "UNKNOWN",
+];
+type Manufacturing = (typeof manufacturingValue)[number];

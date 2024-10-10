@@ -30,10 +30,7 @@ export const Default: Story = {
         description:
           "Cold brew specialist and coffee blogger.",
         email: "michael.johnson@example.com",
-        loginInfo: {
-          userId: "michael30",
-          password: "coldbrewCoffee1",
-        },
+        password: "coldbrewCoffee1",
         registered: "2020-11-20",
         phone: "345-678-9012",
         thumbnail: "/images/authors/michael-johnson.jpg",

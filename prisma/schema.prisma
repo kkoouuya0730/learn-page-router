@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Gender {
+  MAN
+  WOMAN
+}
+
+model User {
+  id          String   @id @default(cuid())
+  username    String
+  gender      Gender
+  age         String
+  description String
+  email       String
+  password    String
+  Blog        Blog[]
+  phone       String
+  thumbnail   String
+  github      String
+  twitter     String
+  instagram   String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+}
+
+model Blog {
+  id        String   @id @default(cuid())
+  title     String
+  thumbnail String
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+  tag       String[]
+  likes     Int
+  contents  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+enum Roasting {
+  LIGHT
+  CINNAMON
+  MEDIUM
+  HIGH
+  CITY
+  FULLCITY
+  FRENCH
+  ITALIAN
+}
+
+enum Manufacturing {
+  WASHED
+  SEMIWASHED
+  NATURAL
+  UNKNOWN
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  score     Int
+  title     String
+  content   String
+  // menu      Menu[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Menu {
+  id            String        @id @default(cuid())
+  name          String
+  price         Int
+  imgSrc        String
+  subImages     String[]
+  description   String
+  country       String
+  // review        Review?       @relation(fields: [reviewId], references: [id])
+  // reviewId      String?
+  roasting      Roasting
+  manufacturing Manufacturing
+  flavor        String[]
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+}
