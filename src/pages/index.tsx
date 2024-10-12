@@ -9,22 +9,18 @@ import { Menu } from "@/types/menu";
 import { ImgCard } from "@/components/elements/card/ImgCard";
 
 type Props = {
-  data: {
-    menus: Menu[];
-  };
+  menus: Menu[];
 };
-export default function Home({ data }: Props) {
+export default function Home({ menus }: Props) {
   const router = useRouter();
 
-  const itemList = data.menus
-    .map((menu) => {
-      return {
-        src: menu.imgSrc,
-        ledes: menu.name,
-        price: menu.price,
-      };
-    })
-    .slice(1, Infinity);
+  const itemList = menus.map((menu) => {
+    return {
+      src: menu.imgSrc,
+      ledes: menu.name,
+      price: menu.price,
+    };
+  });
 
   return (
     <div className="grid gap-4">
@@ -115,10 +111,10 @@ export async function getServerSideProps() {
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
-    const data = await res.json();
-    return { props: { data } };
+    const menus = await res.json();
+    return { props: { menus } };
   } catch (error) {
     console.error("Fetch error:", error);
-    return { props: { data: null } };
+    return { props: { menus: null } };
   }
 }
