@@ -1,17 +1,31 @@
 "use client";
 import Button from "@/components/elements/button/Button";
 import React, { useEffect, useId, useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import {
+  useForm,
+  SubmitHandler,
+  useWatch,
+} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { TextForm } from "@/components/elements/form/TextForm";
+import { createClient } from "@/lib/supabase/component";
+
+export const loginFormTypeValue = ["login", "signUp"] as const;
+
+type LoginFormType = (typeof loginFormTypeValue)[number];
+
+type Props = {
+  formType?: LoginFormType;
+};
 
 type Inputs = {
   email: string;
   password: string;
 };
 
-export default function LoginForm() {
+export default function AuthForm({ formType = "login" }: Props) {
+  const supabase = createClient();
   const [buttonValid, setButtonValid] = useState(true);
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -27,15 +41,30 @@ export default function LoginForm() {
     register,
     handleSubmit,
     formState: { errors, isValid },
-    reset,
+    control,
+    resetField,
   } = useForm({
     resolver: yupResolver(validationSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const { error } = await supabase.auth.signUp({
+      email: data.email,
+      password: data.password,
+    });
+    if (error) {
+      console.error(error);
+    }
   };
+
+  const watchedValue = useWatch({
+    control,
+    defaultValue: { email: "", password: "" },
+  });
 
   useEffect(() => {
     isValid ? setButtonValid(false) : setButtonValid(true);
@@ -56,6 +85,8 @@ export default function LoginForm() {
           aria-describedby={
             errors.email ? emailErrorId : undefined
           }
+          onClickClearButton={() => resetField("email")}
+          shouldShowClearButton={watchedValue.email !== ""}
         />
         {errors.email && (
           <p
@@ -79,6 +110,10 @@ export default function LoginForm() {
           aria-describedby={
             errors.password ? passwordErrorId : undefined
           }
+          onClickClearButton={() => resetField("password")}
+          shouldShowClearButton={
+            watchedValue.password !== ""
+          }
         />
         {errors.password && (
           <p
@@ -97,7 +132,7 @@ export default function LoginForm() {
           color="primary"
           disabled={buttonValid}
         >
-          ログイン
+          {formType.toUpperCase()}
         </Button>
       </p>
     </form>
