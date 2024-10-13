@@ -1,6 +1,6 @@
 import Button from "@/components/elements/button/Button";
 import { ImgCard } from "@/components/elements/card/ImgCard";
-import SearchForm from "@/components/elements/form/SearchForm";
+import { TextForm } from "@/components/elements/form/TextForm";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
 
@@ -43,7 +43,12 @@ export default function Menu() {
     <>
       <div className="flex items-center justify-between mb-8">
         <CustomHeading tag="h1">Our Products</CustomHeading>
-        <SearchForm />
+        <TextForm
+          iconType="search"
+          onClickClearButton={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </div>
       <div className="grid justify-center items-center sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {list.map((l) => (

@@ -1,6 +1,5 @@
 "use client";
 
-import SearchForm from "@/components/elements/form/SearchForm";
 import GoogleMap from "@/components/elements/google-map";
 import CustomHeading from "@/components/elements/text/CustomHeading";
 import Layout from "@/components/layouts/Layout";
@@ -9,6 +8,7 @@ import { StoreInfo } from "@/types/store";
 import { useEffect, useRef, useState } from "react";
 import { StoreCard } from "./parts/StoreCard";
 import { StoreDetailDialog } from "./parts/StoreDetailDialog";
+import { TextForm } from "@/components/elements/form/TextForm";
 
 const storeList: StoreInfo[] = [
   {
@@ -81,7 +81,12 @@ export default function Store() {
     <>
       <div className="flex items-center justify-between mb-6">
         <CustomHeading tag="h1">Find Store</CustomHeading>
-        <SearchForm />
+        <TextForm
+          iconType="search"
+          onClickClearButton={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </div>
       <div className="lg:flex lg:space-x-4 lg:h-screen">
         <div

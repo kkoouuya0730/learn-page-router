@@ -23,6 +23,7 @@ export const Primary: TextFormProps = {
   args: {
     label: "Email",
     isRequired: true,
+    onClickClearButton: () => alert("Clear Input Value"),
     iconType: "none",
   },
 };

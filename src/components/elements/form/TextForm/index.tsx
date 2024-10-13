@@ -8,19 +8,19 @@ import { CloseIcon } from "@/ui/icon/CloseIcon";
 
 type Props = {
   label?: string;
-  isRequired: boolean;
+  isRequired?: boolean;
   iconType: IconType;
   onClickClearButton: () => void;
-  shouldShowClearButton: boolean;
+  shouldShowClearButton?: boolean;
 } & React.ComponentPropsWithoutRef<"input">;
 export const TextForm = forwardRef<HTMLInputElement, Props>(
   function TextForm(
     {
       label,
-      isRequired,
+      isRequired = false,
       iconType = "none",
       onClickClearButton,
-      shouldShowClearButton,
+      shouldShowClearButton = false,
       ...props
     }: Props,
     ref
