@@ -44,7 +44,7 @@ CREATE TABLE "Blog" (
 
 -- CreateTable
 CREATE TABLE "Review" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "score" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
     "content" TEXT NOT NULL,
@@ -63,9 +63,9 @@ CREATE TABLE "Menu" (
     "subImages" TEXT[],
     "description" TEXT NOT NULL,
     "country" TEXT NOT NULL,
-    "reviewId" INTEGER NOT NULL,
-    "roasting" TEXT NOT NULL,
-    "manufacturing" TEXT NOT NULL,
+    "reviewId" TEXT NOT NULL,
+    "roasting" "Roasting" NOT NULL,
+    "manufacturing" "Manufacturing" NOT NULL,
     "flavor" TEXT[],
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
