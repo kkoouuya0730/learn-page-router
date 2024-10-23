@@ -1,85 +1,62 @@
 import { PrismaClient } from "@prisma/client";
-import {
-  Gender,
-  Roasting,
-  Manufacturing,
-} from "@prisma/client";
-
+import { Gender, Roasting, Manufacturing } from "@prisma/client";
+import { hash } from "bcrypt";
 const prisma = new PrismaClient();
 
 async function seed() {
-  const users = [
-    {
-      password: "securePassword123!",
+  const user1 = await prisma.user.create({
+    data: {
       username: "johndoe",
       gender: Gender.MAN,
       age: "30",
-      description:
-        "Web developer passionate about creating user-friendly applications.",
-      email: "johndoe@example.com",
-      Blog: undefined,
-      phone: "+1234567890",
-      thumbnail: "https://example.com/images/johndoe.jpg",
+      description: "I am a software developer",
+      email: "john@example.com",
+      password: await hash("password123", 10),
+      phone: "1234567890",
+      thumbnail: "https://example.com/john.jpg",
       github: "https://github.com/johndoe",
       twitter: "https://twitter.com/johndoe",
       instagram: "https://instagram.com/johndoe",
     },
-  ];
-  let userInfo;
-  for (let user of users) {
-    userInfo = await prisma.user.create({ data: user });
-  }
+  });
 
-  const reviews = [
-    {
-      score: 1,
-      title: "Init Review Title",
-      content: "Init Review Contents",
-      
+  await prisma.blog.create({
+    data: {
+      title: "My First Blog Post",
+      thumbnail: "https://example.com/blog1.jpg",
+      author: {
+        connect: { id: user1.id },
+      },
+      tag: ["technology", "programming"],
+      likes: 10,
+      contents: "This is my first blog post about technology and programming.",
     },
-  ];
+  });
 
-  let reviewInfo;
-  for (let review of reviews) {
-    reviewInfo = await prisma.review.create({
-      data: review,
-    });
-  }
+  const review1 = await prisma.review.create({
+    data: {
+      score: 4,
+      title: "Great coffee experience",
+      content: "This coffee has a rich flavor and smooth finish. Highly recommended!",
+    },
+  });
 
-  const menus = [
-    {
+  await prisma.menu.create({
+    data: {
       name: "Ethiopian Yirgacheffe",
       price: 1200,
-      imgSrc: "https://picsum.photos/300/200",
-      subImages: [],
-      description:
-        "A light-bodied coffee with bright acidity, floral notes, and a clean finish.",
+      imgSrc: "https://example.com/ethiopian-yirgacheffe.jpg",
+      subImages: ["https://example.com/ethiopian-yirgacheffe-1.jpg", "https://example.com/ethiopian-yirgacheffe-2.jpg"],
+      description: "A light-bodied coffee with bright acidity, floral notes, and a clean finish.",
       country: "Ethiopia",
-
-      manufacturing: Manufacturing.WASHED,
+      review: {
+        connect: { id: review1.id },
+      },
       roasting: Roasting.LIGHT,
-      flavor: ["Floral", "Citrus", "Bergamot", "Jasmine"],
+      manufacturing: Manufacturing.WASHED,
+      flavor: ["Floral", "Citrus", "Bergamot"],
     },
-  ];
-  for (let menu of menus) {
-    await prisma.menu.create({ data: menu });
-  }
-
-  const blogs = [
-    {
-      title: "10 Essential Tips for Mastering JavaScript",
-      thumbnail:
-        "https://example.com/images/javascript-tips-thumbnail.jpg",
-      author: undefined,
-      authorId: userInfo?.id,
-      tag: [],
-      likes: 256,
-      contents: "",
-    },
-  ];
-  for (let blog of blogs) {
-    await prisma.blog.create({ data: blog });
-  }
+  });
 }
 
 seed()

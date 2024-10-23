@@ -67,7 +67,7 @@ model Review {
   score     Int
   title     String
   content   String
-  // menu      Menu[]
+  menu      Menu[]
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
@@ -80,8 +80,8 @@ model Menu {
   subImages     String[]
   description   String
   country       String
-  // review        Review?       @relation(fields: [reviewId], references: [id])
-  // reviewId      String?
+  review        Review        @relation(fields: [reviewId], references: [id])
+  reviewId      String
   roasting      Roasting
   manufacturing Manufacturing
   flavor        String[]
