@@ -2,18 +2,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import prisma from "@/lib/prisma";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
     try {
-      const blogs = await prisma.blog.findMany();
+      const blogs = await prisma.blog.findMany({ include: { author: true } });
       res.status(200).json(blogs);
     } catch (error) {
-      res
-        .status(500)
-        .json({ error: "Failed to fetch blogs" });
+      res.status(500).json({ error: "Failed to fetch blogs" });
     } finally {
       await prisma.$disconnect();
     }

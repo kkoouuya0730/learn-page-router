@@ -11,9 +11,7 @@ type Props = {
 export function BlogListItem({ blog }: Props) {
   return (
     <article className="flex space-x-4">
-      <Link
-        href={`/${blog.author.username}/articles/${blog.id}`}
-      >
+      <Link href={`/${blog.author.username}/articles/${blog.id}`}>
         <Image
           alt="this blog's thumbnail"
           src="https://picsum.photos/90/90"
@@ -24,12 +22,8 @@ export function BlogListItem({ blog }: Props) {
       </Link>
       <div>
         <div className="text-lg text-amber-900 mb-2">
-          <Link
-            href={`/${blog.author.username}/articles/${blog.id}`}
-          >
-            <CustomHeading tag="h2">
-              {blog.title}
-            </CustomHeading>
+          <Link href={`/${blog.author.username}/articles/${blog.id}`}>
+            <CustomHeading tag="h2">{blog.title}</CustomHeading>
           </Link>
         </div>
         <div className="flex space-x-2 items-center">
@@ -40,10 +34,7 @@ export function BlogListItem({ blog }: Props) {
             height={25}
             className="rounded-full"
           />
-          <Link
-            href={`/${blog.author.username}`}
-            className="text-amber-600 hover:underline hover:cursor-pointer"
-          >
+          <Link href={`/${blog.author.username}`} className="text-amber-600 hover:underline hover:cursor-pointer">
             {blog.author.username}
           </Link>
           <span className="flex items-center text-amber-300">
