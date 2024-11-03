@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Session } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/component";
+import { AccountIcon } from "@/ui/icon/AccountIcon";
 
 const supabase = createClient();
 export default function Header() {
@@ -44,22 +45,23 @@ export default function Header() {
         <div className="hidden sm:block">
           <NavigationParts />
         </div>
-        <div className="flex items-center space-x-1">
-          {session ? (
+
+        {session ? (
+          <div>
+            <Link href="/mypage" className="hover:text-gray-500">
+              <AccountIcon className="text-center" />
+            </Link>
+          </div>
+        ) : (
+          <div className="flex items-center space-x-1">
             <Button color="primary" onClick={handleSignUp}>
-              Sign out
+              <span className="whitespace-nowrap">Sign Up</span>
             </Button>
-          ) : (
-            <>
-              <Button color="primary" onClick={handleSignUp}>
-                <span className="whitespace-nowrap">Sign Up</span>
-              </Button>
-              <Button color="tertiary" onClick={handleLogin}>
-                Login
-              </Button>
-            </>
-          )}
-        </div>
+            <Button color="tertiary" onClick={handleLogin}>
+              Login
+            </Button>
+          </div>
+        )}
       </div>
     </header>
   );
